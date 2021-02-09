@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30406.217
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PetRentalCore", "PetRentalCore\PetRentalCore.csproj", "{1A6A61C4-6CB0-4C90-A996-DB619EBCA451}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PetRentalGui", "PetRentalGui\PetRentalGui.csproj", "{6C27A770-4A77-4C6D-83EC-BCF94FDE4F13}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1A6A61C4-6CB0-4C90-A996-DB619EBCA451}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A6A61C4-6CB0-4C90-A996-DB619EBCA451}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A6A61C4-6CB0-4C90-A996-DB619EBCA451}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A6A61C4-6CB0-4C90-A996-DB619EBCA451}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C27A770-4A77-4C6D-83EC-BCF94FDE4F13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C27A770-4A77-4C6D-83EC-BCF94FDE4F13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C27A770-4A77-4C6D-83EC-BCF94FDE4F13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C27A770-4A77-4C6D-83EC-BCF94FDE4F13}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {99816A5E-CEF7-4FE1-9DD7-7E842D7C4A71}
+	EndGlobalSection
+EndGlobal

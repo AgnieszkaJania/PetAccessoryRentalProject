@@ -1,0 +1,67 @@
+﻿<Page x:Class="PetRentalGui.FindClient"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PetRentalGui"
+      mc:Ignorable="d" 
+      d:DesignHeight="350" d:DesignWidth="600"
+      Title="FindClient">
+
+    <Grid Margin="10,0,10,10">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+
+
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Label Grid.Column="0" VerticalAlignment="Center" FontFamily="Trebuchet MS" 
+            FontWeight="Bold" FontSize="18" Foreground="#0066cc" HorizontalAlignment="Center">
+            Enter client id or surname:
+        </Label>
+        <TextBox Grid.Row="0" Grid.Column="1" Name="ClientIdOrName" Height="25" Width="100" HorizontalAlignment="Left"></TextBox>
+        <Button Grid.Row="1" Margin="0,10,0,0" Width="125" Height="25" 
+                HorizontalAlignment="Left" VerticalAlignment="Top" Click="SearchClient" >Search</Button>
+        <!--<TextBox Grid.Row="2" Grid.Column="0" Name="SearchResult"></TextBox>-->
+        <FlowDocumentScrollViewer Grid.ColumnSpan="2" Margin="0,57,0,-8" Grid.Row="1" Grid.RowSpan="2">
+            <FlowDocument>
+                <Table>
+                    <Table.Columns>
+                        <TableColumn Width="50"/>
+                        <TableColumn/>
+                        <TableColumn/>
+                        <TableColumn/>
+                        <TableColumn/>
+                    </Table.Columns>
+
+                    <TableRowGroup x:Name="Tabelka">
+                        <TableRow>
+                            <TableCell>
+                                <Paragraph>ID</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph>name</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph>family name</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph>date</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph>birth date</Paragraph>
+                            </TableCell>
+                        </TableRow>
+
+                    </TableRowGroup>
+
+                </Table>
+            </FlowDocument>
+        </FlowDocumentScrollViewer>
+    </Grid>
+</Page>
