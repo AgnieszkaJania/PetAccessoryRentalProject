@@ -18,8 +18,8 @@
         <Label Grid.Column="0" Grid.Row="0" Height="35" Width="310" Padding="5" Background="#4E87D4"
            VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White">Enter accessory id:
         </Label>
-        <TextBox Grid.Row="1" Width="100" Height="20" Name="ReturnInput"></TextBox>
-        <Button Grid.Row="2" Width="110" Height="20"> Return accessory</Button>
-       
+        <TextBox Grid.Row="1" Width="100" Height="20" Name="ReturnInput" ></TextBox>
+        <Button Grid.Row="2" Width="110" Height="20" Click="ReturnRentedAccessory"> Return accessory</Button>
+        <TextBox Grid.Row="4" Width="120" Height="20" Name="Output" ></TextBox>
     </Grid>
 </Window>

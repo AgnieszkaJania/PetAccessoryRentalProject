@@ -1,5 +1,8 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using PetRentalCore;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -17,6 +20,35 @@ namespace PetRentalGui {
     public partial class ReturnAccessory : Window {
         public ReturnAccessory() {
             InitializeComponent();
+        }
+
+        private void ReturnRentedAccessory(object sender, EventArgs e) {
+
+            string input = ReturnInput.Text;
+            int x;
+            if (int.TryParse(input, out x)) {
+                using var ctx = new PetRentalContext();
+                var rentals = ctx.Rentals
+                    .Where(b => b.ReturnDate == null)
+                    .Where(c => c.AccessoryId == x).ToArray();
+                if (rentals.Length != 1) {
+                    Output.Text = "Podana rzecz nie jest wypożyczona !";
+                } else {
+
+                    rentals[0].ReturnDate = DateTime.Now;
+                    ctx.SaveChanges();
+                }
+                
+
+
+            } else {
+                Output.Text = "Niepoprawne id";
+            }
+
+
+
+
+
         }
     }
 }

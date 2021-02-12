@@ -26,6 +26,7 @@ namespace PetRentalGui {
             var clientId = ClientToRemId.Text;
             int a;
             
+            
             if (int.TryParse(clientId, out a)) {
 
                 using var ctx = new PetRentalContext();

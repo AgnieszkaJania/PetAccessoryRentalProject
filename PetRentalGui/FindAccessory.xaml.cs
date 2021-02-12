@@ -43,7 +43,7 @@ namespace PetRentalGui {
                     break;
                     case "Name":
                     accessories = accessories
-                        .Where(a => a.AccessoryName == input)
+                        .Where(a => a.AccessoryName.Contains(input))
                         .ToList();
                     break;
                     case "Rented accessories":
