@@ -6,7 +6,7 @@ using System.Text;
 namespace PetRentalCore.Model {
 
     public class Client {
-
+        [Key]
         public int Id {
             get; set;
         }
@@ -34,5 +34,6 @@ namespace PetRentalCore.Model {
 
 
         public string DateBirth => DateOfBirth.ToString("yyyy.MM.dd");
+        public string DateRegistration => RegistrationDate.ToString("yyyy.MM.dd");
     }
 }

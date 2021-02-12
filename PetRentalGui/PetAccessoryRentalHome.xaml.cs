@@ -42,6 +42,18 @@ namespace PetRentalGui {
             AddRental addRental = new AddRental();
             this.NavigationService.Navigate(addRental);
         }
+        private void RemoveClient(object o, RoutedEventArgs e) {
+            RemoveClient removeClient = new RemoveClient();
+            removeClient.Show();
+        }
+        private void SearchRental(object o, RoutedEventArgs e) {
+            FindRental findRental = new FindRental();
+            this.NavigationService.Navigate(findRental);
+        }
+        private void ReturnRentedAccessory(object o, RoutedEventArgs e) {
+            ReturnAccessory returnAccessory = new ReturnAccessory();
+            returnAccessory.Show();
+        }
         private void ExitApp(object o, RoutedEventArgs e) {
             Environment.Exit(0);
         }

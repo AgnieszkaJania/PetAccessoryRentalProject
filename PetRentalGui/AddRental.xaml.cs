@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using PetRentalCore;
+using PetRentalCore.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,6 +23,42 @@ namespace PetRentalGui {
     public partial class AddRental : Page {
         public AddRental() {
             InitializeComponent();
+        }
+
+        private void AddNewRental(object sender, EventArgs e) {
+           
+            string inputAccessory = AccessoryId.Text;
+            string inputClient = ClientId.Text;
+            int x;
+            int y;
+            if (int.TryParse(inputAccessory, out x) && int.TryParse(inputClient, out y)) {
+                using var ctx = new PetRentalContext();
+
+                 var rentals = ctx.Rentals
+                    .Include(a => a.Accessory)
+                    .ToList();
+                var NotReturnedRentals = rentals
+                    .Where(b => b.ReturnDate is null)
+                    .Where(c => c.AccessoryId == x)
+                    .ToList();
+                var clients = ctx.Clients
+                    .Where(z => z.Id == y)
+                    .ToList();
+
+                if (NotReturnedRentals.Count == 0 && clients.Count != 0) {
+                    var tmp = new Rental() { ClientId = y, AccessoryId = x, RentalDate = DateTime.Now };
+                    ctx.Rentals.Add(tmp);
+                    ctx.SaveChanges();
+                    Output.Text = "Rental added";
+                } else {
+                    Output.Text = "This accessory or client is unavailable !";
+                }
+
+               
+            } else {
+                Output.Text = "Incorrect id !";
+            }
+           
         }
     }
 }

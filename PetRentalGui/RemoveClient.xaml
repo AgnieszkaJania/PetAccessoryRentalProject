@@ -1,0 +1,26 @@
+﻿<Window x:Class="PetRentalGui.RemoveClient"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PetRentalGui"
+        mc:Ignorable="d"
+        Title="RemoveClient" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+
+        </Grid.RowDefinitions>
+        <Label Grid.Column="0" Grid.Row="0" Height="35" Width="310" Padding="5" Background="#4E87D4"
+           VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White">Enter client id to remove:
+        </Label>
+        <Label Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Width="310" Background="red" Foreground="Black"> You can only remove clients that did not rented anything !</Label>
+        <TextBox Grid.Row="2" Width="200" Height="20" HorizontalAlignment="Center" VerticalAlignment="Center" Name="ClientToRemId"></TextBox>
+        <TextBox Grid.Row="4" Width="200" Height="20" HorizontalAlignment="Center" VerticalAlignment="Center" Name="Response"></TextBox>
+        <Button Grid.Row="3" Height="20" Width="100" VerticalAlignment="Center" Click="RemoveSelClient"> Remove client</Button>
+    </Grid>
+</Window>

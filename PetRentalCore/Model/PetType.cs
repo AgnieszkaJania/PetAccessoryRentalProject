@@ -7,6 +7,7 @@ using System.Text;
 namespace PetRentalCore.Model
 {
     public class PetType {
+        [Key]
         public int Id {
             get; set;
         }

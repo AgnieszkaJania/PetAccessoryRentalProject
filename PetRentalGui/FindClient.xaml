@@ -51,10 +51,10 @@
                                 <Paragraph>family name</Paragraph>
                             </TableCell>
                             <TableCell>
-                                <Paragraph>date</Paragraph>
+                                <Paragraph>Birthday date</Paragraph>
                             </TableCell>
                             <TableCell>
-                                <Paragraph>birth date</Paragraph>
+                                <Paragraph>Registration date</Paragraph>
                             </TableCell>
                         </TableRow>
 

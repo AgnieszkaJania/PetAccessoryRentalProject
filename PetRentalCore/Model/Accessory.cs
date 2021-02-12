@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 using System.Text;
 
 namespace PetRentalCore.Model
 {
     public class Accessory
     {
+        [Key]
         public int Id
         {
             get; set;
@@ -45,7 +47,7 @@ namespace PetRentalCore.Model
         {
             get; set;
         }
-
-
+        public bool isRented =>
+            Rentals?.Any(a => a.ReturnDate is null) == null;
     }
 }

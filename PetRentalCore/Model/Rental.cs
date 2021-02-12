@@ -7,6 +7,7 @@ using System.Text;
 namespace PetRentalCore.Model
 {
     public class Rental {
+        [Key]
         public int Id {
             get; set;
         }
@@ -25,11 +26,12 @@ namespace PetRentalCore.Model
         public virtual Accessory Accessory {
             get; set;
         }
+
         [Required]
-        public int RentalDate {
+        public DateTime RentalDate {
             get; set;
         }
-        public int ReturnDate {
+        public DateTime? ReturnDate {
             get; set;
         }
     }

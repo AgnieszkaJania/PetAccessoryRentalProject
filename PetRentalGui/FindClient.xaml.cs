@@ -35,7 +35,7 @@ namespace PetRentalGui {
                         var c2 = TableCel(x.Name);
                         var c3 = TableCel(x.Surname);
                         var c4 = TableCel(x.DateBirth);
-                        var c5 = TableCel(x.RegistrationDate.ToString());
+                        var c5 = TableCel(x.DateRegistration);
 
                         row.Cells.Add(c1);
                         row.Cells.Add(c2);
@@ -60,7 +60,7 @@ namespace PetRentalGui {
                             var c2 = TableCel(x.Name);
                             var c3 = TableCel(x.Surname);
                             var c4 = TableCel(x.DateBirth);
-                            var c5 = TableCel(x.RegistrationDate.ToString());
+                            var c5 = TableCel(x.DateRegistration);
 
                             row.Cells.Add(c1);
                             row.Cells.Add(c2);
@@ -81,7 +81,7 @@ namespace PetRentalGui {
                             var c2 = TableCel(x.Name);
                             var c3 = TableCel(x.Surname);
                             var c4 = TableCel(x.DateBirth);
-                            var c5 = TableCel(x.RegistrationDate.ToString());
+                            var c5 = TableCel(x.DateRegistration);
 
                             row.Cells.Add(c1);
                             row.Cells.Add(c2);

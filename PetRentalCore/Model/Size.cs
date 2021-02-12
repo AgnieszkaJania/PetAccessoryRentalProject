@@ -8,6 +8,7 @@ namespace PetRentalCore.Model
 {
 
     public class Size {
+        [Key]
         public int Id {
             get; set;
         }
