@@ -48,6 +48,6 @@ namespace PetRentalCore.Model
             get; set;
         }
         public bool isRented =>
-            Rentals?.Any(a => a.ReturnDate is null) == null;
+            Rentals.Any(a=>a.ReturnDate is null);
     }
 }

@@ -31,7 +31,7 @@ namespace PetRentalGui {
                 var rentals = ctx.Rentals
                     .Where(b => b.ReturnDate == null)
                     .Where(c => c.AccessoryId == x).ToArray();
-                if (rentals.Length != 1) {
+                if (rentals.Length ==0) {
                     Output.Text = "Podana rzecz nie jest wypożyczona !";
                 } else {
 

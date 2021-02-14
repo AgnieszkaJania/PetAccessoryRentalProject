@@ -7,7 +7,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="piesek.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\PetRentalCore\PetRentalCore.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="piesek.jpg">
+      <CustomToolNamespace>Piesek</CustomToolNamespace>
+    </Resource>
   </ItemGroup>
 
 </Project>

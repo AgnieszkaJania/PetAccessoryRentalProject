@@ -19,8 +19,11 @@ namespace PetRentalGui {
     /// Logika interakcji dla klasy FindRental.xaml
     /// </summary>
     public partial class FindRental : Page {
+
         public FindRental() {
             InitializeComponent();
+            (Application.Current.MainWindow as Window)
+                .Width = 1300;
         }
 
         private void SearchRental(object sender, EventArgs e) {
@@ -32,10 +35,19 @@ namespace PetRentalGui {
             if (input == "") {
 
                 using (var ctx = new PetRentalContext()) {
+
                     var rentals = ctx.Rentals
-                        .Include(a => a.Client)
-                        .Include(b => b.Accessory)
-                        .ToList();
+                       .Include(a => a.Client)
+                       .Include(b => b.Accessory)
+                       .ToList();
+
+                    var notReturned = OnlyNotReturned.IsChecked;
+                    if (notReturned == true) {
+                        rentals = rentals
+                            .Where(c => c.ReturnDate == null)
+                            .ToList();
+                    } 
+                    
                     foreach (var x in rentals) {
                         var row = new TableRow();
                         var c1 = TableCel(x.Id.ToString());

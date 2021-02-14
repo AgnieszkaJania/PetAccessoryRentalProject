@@ -29,7 +29,7 @@
                 HorizontalAlignment="Left" VerticalAlignment="Center" Click="SearchRental">Search
         </Button>
 
-        <RadioButton Grid.Row="1" VerticalAlignment="Bottom">Only not returned accessories fo a client</RadioButton>
+        <RadioButton Grid.Row="1" VerticalAlignment="Bottom" Name="OnlyNotReturned">Only not returned accessories for a client</RadioButton>
         
         
         <FlowDocumentScrollViewer Name="SearchCategoryRental" Grid.ColumnSpan="2" Margin="0,57,0,-8" Grid.Row="4" Grid.RowSpan="2">
