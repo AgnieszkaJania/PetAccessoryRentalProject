@@ -8,7 +8,7 @@ namespace PetRentalCore.Model
 {
     /// <summary>
     /// Klasa odpowiadająca za tabelę akcesoria.
-    /// Klasa tworzy wymagane kolumny tabeli.
+    /// Mapowanie kolumn.
     /// </summary>
     public class Accessory
     {
@@ -27,6 +27,8 @@ namespace PetRentalCore.Model
         /// Property.
         /// Nazwa akcesorium.
         /// Pole wymagane.
+        /// Długość nie może przekraczać 30 znaków.
+        /// Tworzy kolumnę AccessoryName.
         /// </summary>
         [Required]
         [StringLength(30)]
@@ -47,6 +49,7 @@ namespace PetRentalCore.Model
         }
         /// <summary>
         /// Wypożyczenia danego akcesorium.
+        /// Navigation property for related rows.
         /// </summary>
         public IEnumerable<Rental> Rentals
         {
@@ -56,9 +59,8 @@ namespace PetRentalCore.Model
         /// Property.
         /// ID rodzaju zwierzęcia, dla którego przeznaczone jest akcesorium.
         /// Tworzy kolumnę PetTypeId.
-        /// Pole wymagane.
+        /// Zależność od klucza obcego.
         /// </summary>
-        [Required]
         public int PetTypeId
         {
             get; set;
@@ -66,6 +68,7 @@ namespace PetRentalCore.Model
         /// <summary>
         /// Property.
         /// Rodzaj zwierzęcia, dla którego przeznaczone jest akcesorium.
+        /// Zależność od klucza obcego.
         /// </summary>
         public virtual PetType PetType
         {
@@ -74,9 +77,9 @@ namespace PetRentalCore.Model
         /// <summary>
         /// Property.
         /// ID rozmiaru, w którym jest akcesorium.
-        /// Pole wymagane.
+        /// Tworzy kolumnę SizeId.
+        /// Zależność od klucza obcego.
         /// </summary>
-        [Required]
         public int SizeId
         {
             get; set;
@@ -84,7 +87,7 @@ namespace PetRentalCore.Model
         /// <summary>
         /// Property.
         /// Rozmiar akcesorium.
-        /// 
+        /// Zależność od klucza obcego.
         /// </summary>
         public virtual Size Size
         {

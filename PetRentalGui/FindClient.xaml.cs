@@ -19,6 +19,9 @@ namespace PetRentalGui {
     /// Logika interakcji dla klasy FindClient.xaml
     /// </summary>
     public partial class FindClient : Page {
+        /// <summary>
+        /// Konstruktor.
+        /// </summary>
         public FindClient() {
             InitializeComponent();
         }

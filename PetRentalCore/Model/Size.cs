@@ -8,7 +8,7 @@ namespace PetRentalCore.Model
 {
     /// <summary>
     /// Klasa odpowiadająca za tabelę rozmiary.
-    /// Klasa tworzy wymagane kolumny tabeli.
+    /// Mapowanie kolumn.
     /// </summary>
 
     public class Size {
@@ -43,6 +43,7 @@ namespace PetRentalCore.Model
         }
         /// <summary>
         /// Akcesoria o danym rozmiarze.
+        /// Navigation property for related rows.
         /// </summary>
         public IEnumerable<Accessory> Accessories {
             get; set;

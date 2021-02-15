@@ -17,6 +17,9 @@ namespace PetRentalGui {
     /// Logika interakcji dla klasy RemoveClient.xaml
     /// </summary>
     public partial class RemoveClient : Window {
+        /// <summary>
+        /// Konstruktor.
+        /// </summary>
         public RemoveClient() {
             InitializeComponent();
         }

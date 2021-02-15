@@ -11,6 +11,9 @@ namespace PetRentalGui {
     /// Logika interakcji dla klasy FindAccessory.xaml
     /// </summary>
     public partial class FindAccessory : Page {
+        /// <summary>
+        /// Konstruktor.
+        /// </summary>
         public FindAccessory() {
             InitializeComponent();
 
@@ -22,8 +25,6 @@ namespace PetRentalGui {
             var value = SearchCategory.SelectedValue as ListBoxItem;
             string valueSearchCategory = value.Content as string;
 
-
-            //throw new Exception();
             string input = Value.Text.Trim().ToLower();
             
             using (var ctx = new PetRentalContext()) {
@@ -61,10 +62,11 @@ namespace PetRentalGui {
                     break;
                 }
 
-                //var selectedAcc = accessories.Where(x => x.PetType.ToString() == input);
+               
                 if (accessories.Count == 0) {
                     MessageBox.Show("Accessory not found !");
                 }
+
                 foreach (var x in accessories) {
                     var row = new TableRow();
                     var c1 = TableCel(x.Id.ToString());

@@ -20,7 +20,7 @@ namespace PetRentalGui {
     /// </summary>
     public partial class FindRental : Page {
         /// <summary>
-        /// Konstruktor klasy FindRental
+        /// Konstruktor.
         /// </summary>
         public FindRental() {
             InitializeComponent();

@@ -18,6 +18,9 @@ namespace PetRentalGui {
     /// Logika interakcji dla klasy UpdateClientInformation.xaml
     /// </summary>
     public partial class UpdateClientInformation : Page {
+        /// <summary>
+        /// Konstruktor.
+        /// </summary>
         public UpdateClientInformation() {
             InitializeComponent();
         }

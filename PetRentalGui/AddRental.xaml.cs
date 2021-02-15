@@ -22,7 +22,7 @@ namespace PetRentalGui {
     /// </summary>
     public partial class AddRental : Page {
         /// <summary>
-        /// 
+        /// Konstruktor.
         /// </summary>
         public AddRental() {
             InitializeComponent();
@@ -35,53 +35,58 @@ namespace PetRentalGui {
             int x;
             int y;
             if (int.TryParse(inputAccessory, out x) && int.TryParse(inputClient, out y)) {
-                using var ctx = new PetRentalContext();
+                using (var ctx = new PetRentalContext()) {
 
-                 var rentals = ctx.Rentals
-                    .Include(a => a.Accessory)
-                    .ToList();
-                var acc = ctx.Accessories
-                    .Where(p => p.Id == x)
-                    .ToList();
-                var NotReturnedRentals = rentals
-                    .Where(b => b.ReturnDate is null)
-                    .Where(c => c.AccessoryId == x)
-                    .ToList();
-                var clients = ctx.Clients
-                    .Where(z => z.Id == y)
-                    .ToList();
-               
+                    var rentals = ctx.Rentals
+                        .Include(a => a.Accessory)
+                        .ToList();
+                    var acc = ctx.Accessories
+                        .Where(p => p.Id == x)
+                        .ToList();
+                    var NotReturnedRentals = rentals
+                        .Where(b => b.ReturnDate is null)
+                        .Where(c => c.AccessoryId == x)
+                        .ToList();
+                    var clients = ctx.Clients
+                        .Where(z => z.Id == y)
+                        .ToList();
 
-                if (NotReturnedRentals.Count == 0) {
 
-                    if (clients.Count == 1) {
+                    if (NotReturnedRentals.Count == 0) {
 
-                        if (acc.Count == 0) {
-                            MessageBox.Show("This item does not exist in the database !");
-                        } else {
+                        if (clients.Count == 1) {
 
-                            //Client client = clients[0];
+                            if (acc.Count == 0) {
+                                MessageBox.Show("This item does not exist in the database !");
+                            } else {
 
-                            //Accessory accessory = acc[0];
-                            var newRental = new Rental() { ClientId = y, AccessoryId = x, RentalDate = DateTime.Now };
-                            //var tmp = new Rental() { Client = client, Accessory = accessory, RentalDate = DateTime.Now };
-                            ctx.Rentals.Add(newRental);
-                            int result = ctx.SaveChanges();
-                            if (result == 1) {
-                                MessageBox.Show("Rental added !");
+                                //Client client = clients[0];
+
+                                //Accessory accessory = acc[0];
+                                var newRental = new Rental() { ClientId = y, AccessoryId = x, RentalDate = DateTime.Now };
+                                //var tmp = new Rental() { Client = client, Accessory = accessory, RentalDate = DateTime.Now };
+                                ctx.Rentals.Add(newRental);
+                                int result = ctx.SaveChanges();
+                                if (result == 1) {
+                                    MessageBox.Show("Rental added !");
+                                }
+
                             }
-                           
+
+                        } else {
+                            MessageBox.Show("Client not found !");
                         }
-                        
+
                     } else {
-                        MessageBox.Show("Client not found !");
+                        MessageBox.Show("This accessory is rented now !");
                     }
-                    
-                } else {
-                    MessageBox.Show("This accessory is rented now !");
+
+
+
                 }
 
-               
+
+
             } else {
                 MessageBox.Show("Incorrect id !");
             }

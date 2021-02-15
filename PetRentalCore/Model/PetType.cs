@@ -8,7 +8,7 @@ namespace PetRentalCore.Model
 {
     /// <summary>
     ///  Klasa odpowiadająca za tabelę rodzaje zwierząt.
-    /// Klasa tworzy wymagane kolumny tabeli.
+    /// Mapowanie kolumn.
     /// </summary>
     public class PetType {
         /// <summary>
@@ -26,6 +26,7 @@ namespace PetRentalCore.Model
         /// Rodzaj zwierzęcia.
         /// Pole wymagane.
         /// Długość nie może przekraczać 30 znaków.
+        /// Tworzy kolumnę PetTypeName.
         /// </summary>
         [Required]
         [StringLength(30)]
@@ -34,6 +35,7 @@ namespace PetRentalCore.Model
         }
         /// <summary>
         /// Akcesoria przeznaczone dla danego rodzaju zwierzęcia.
+        /// Navigation property for related rows.
         /// </summary>
         public IEnumerable<Accessory> Accessories {
             get; set;

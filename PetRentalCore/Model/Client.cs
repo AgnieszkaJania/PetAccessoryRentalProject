@@ -6,7 +6,7 @@ using System.Text;
 namespace PetRentalCore.Model {
     /// <summary>
     /// Klasa odpowiadająca za tabelę klienci.
-    /// Klasa tworzy wymagane kolumny tabeli.
+    /// Mapowanie kolumn.
     /// </summary>
 
     public class Client {
@@ -66,6 +66,7 @@ namespace PetRentalCore.Model {
         }
         /// <summary>
         /// Wypożyczenia akcesoriów wykonane przez klienta.
+        /// Navigation property for related rows.
         /// </summary>
         public IEnumerable<Rental> Rentals {
             get; set;

@@ -13,7 +13,7 @@ namespace PetRentalGui {
     /// </summary>
     public partial class AddClient : Page {
         /// <summary>
-        /// Konstruktor klasy AddClient.
+        /// Konstruktor.
         /// </summary>
         public AddClient() {
             InitializeComponent();

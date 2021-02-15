@@ -19,6 +19,9 @@ namespace PetRentalGui {
     /// Logika interakcji dla klasy PetAccessoryRentalHome.xaml
     /// </summary>
     public partial class PetAccessoryRentalHome : Page {
+        /// <summary>
+        /// Konstruktor.
+        /// </summary>
         public PetAccessoryRentalHome() {
             InitializeComponent();
             

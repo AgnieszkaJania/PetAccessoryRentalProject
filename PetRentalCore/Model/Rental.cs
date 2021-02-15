@@ -8,7 +8,7 @@ namespace PetRentalCore.Model
 {   
     /// <summary>
     /// Klasa odpowiadająca za tabelę wypożyczenia.
-    /// Klasa tworzy wymagane kolumny tabeli.
+    /// Mapowanie kolumn.
     /// </summary>
     public class Rental {
         /// <summary>
@@ -25,6 +25,7 @@ namespace PetRentalCore.Model
         /// Property.
         /// ID klienta, który wypożyczył dane akcesorium.
         /// Tworzy kolumnę ClientId.
+        /// Zależność od klucza obcego.
         /// </summary>
         public int ClientId {
             get; set;
@@ -32,12 +33,14 @@ namespace PetRentalCore.Model
         /// <summary>
         /// Property.
         /// Klient, który wypożyczył akcesorium.
+        /// Zależność od klucza obcego.
         /// </summary>
         public virtual Client Client {
             get; set;
         }
         /// <summary>
         /// ID akcesorium, które zostało wypożyczone.
+        /// Zależność od klucza obcego.
         /// </summary>
         public int AccessoryId {
             get; set;
@@ -46,6 +49,7 @@ namespace PetRentalCore.Model
         /// Property.
         /// Akcesorium, które zostało wypożyczone.
         /// Tworzy kolumnę AccessoryId.
+        /// Zależność od klucza obcego.
         /// </summary>
         public virtual Accessory Accessory {
             get; set;
@@ -74,6 +78,10 @@ namespace PetRentalCore.Model
         /// Data wypożyczenia akcesorium w formacie zawierającym tylko datę, bez czasu.
         /// </summary>
         public string DateRental => RentalDate.ToString("yyyy.MM.dd");
-        //public string DateReturn => ReturnDate is null ? ReturnDate.ToString() : ReturnDate.ToString("yyyy.MM.dd");
+        /// <summary>
+        /// Property.
+        /// Data zwrotu akcesorium w formacie zawierającym tylko datę, bez czasu.
+        /// </summary>
+        public string DateReturn => ReturnDate is null ? "Not returned" : ReturnDate?.ToString("yyyy.MM.dd");
     }
 }

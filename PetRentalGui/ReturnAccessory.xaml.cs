@@ -18,6 +18,9 @@ namespace PetRentalGui {
     /// Logika interakcji dla klasy ReturnAccessory.xaml
     /// </summary>
     public partial class ReturnAccessory : Window {
+        /// <summary>
+        /// Konstruktor.
+        /// </summary>
         public ReturnAccessory() {
             InitializeComponent();
         }
@@ -27,36 +30,44 @@ namespace PetRentalGui {
             string input = ReturnInput.Text;
             int x;
             if (int.TryParse(input, out x)) {
-                using var ctx = new PetRentalContext();
-                var rentals = ctx.Rentals
-                    .Where(b => b.ReturnDate == null)
-                    .Where(c => c.AccessoryId == x).ToArray();
+                using (var ctx = new PetRentalContext()) {
 
-                var accessories = ctx.Accessories
-                    .Where(d => d.Id == x)
-                    .ToList();
-                if (accessories.Count == 0) {
-                    MessageBox.Show("Item does not exist in the database!");
-                }
-                else if (rentals.Length == 0) {
-                    MessageBox.Show("Selected item is not rented !");
-                } else {
+                    var rentals = ctx.Rentals
+                        .Where(b => b.ReturnDate == null)
+                        .Where(c => c.AccessoryId == x).ToArray();
 
-                    rentals[0].ReturnDate = DateTime.Now;
-                    int result = ctx.SaveChanges();
-                    if (result == 1) {
-                        MessageBox.Show("Item returned !");
-                    }
-                    
-                    var returnedRental = ctx.Rentals
-                        .Where(o => o.Id == x)
+                    var accessories = ctx.Accessories
+                        .Where(d => d.Id == x)
                         .ToList();
 
-                    //decimal amountToPay = accessories[0].OneDayRentalPrice;
-                    //??????????????????????????????????????????????????
-                    //TimeSpan timeSpan =((DateTime)rentals[0].ReturnDate.Value).Subtract(rentals[0].RentalDate);
+                    if (accessories.Count == 0) {
+                        MessageBox.Show("Item does not exist in the database!");
+                    } else if (rentals.Length == 0) {
+                        MessageBox.Show("Selected item is not rented !");
+                    } else {
+
+                        rentals[0].ReturnDate = DateTime.Now;
+                        int result = ctx.SaveChanges();
+                        if (result == 1) {
+                            MessageBox.Show("Item returned !");
+                            
+                        }
+
+                        var returnedRental = ctx.Rentals
+                            .Where(o => o.Id == x)
+                            .ToList();
+
+
+                        decimal amountToPay = accessories[0].OneDayRentalPrice;
+
+                        int rentalDays = ((DateTime)rentals[0].ReturnDate.Value).Subtract(rentals[0].RentalDate).Days - 1;
+                        amountToPay += (accessories[0].OneDayRentalPrice * rentalDays);
+                        AmountToPay.Text = amountToPay.ToString();
+                    }
+
+
                 }
-                
+
 
 
             } else {
