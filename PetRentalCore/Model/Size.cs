@@ -48,5 +48,11 @@ namespace PetRentalCore.Model
         public IEnumerable<Accessory> Accessories {
             get; set;
         }
+        /// <summary>
+        /// Konstruktor.
+        /// </summary>
+        public Size() {
+            this.Accessories = new List<Accessory>();
+        }
     }
 }

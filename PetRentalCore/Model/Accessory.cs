@@ -56,6 +56,12 @@ namespace PetRentalCore.Model
             get; set;
         }
         /// <summary>
+        /// Konstruktor.
+        /// </summary>
+        public Accessory() {
+            this.Rentals = new List<Rental>();
+        }
+        /// <summary>
         /// Property.
         /// ID rodzaju zwierzęcia, dla którego przeznaczone jest akcesorium.
         /// Tworzy kolumnę PetTypeId.

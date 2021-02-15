@@ -71,7 +71,12 @@ namespace PetRentalCore.Model {
         public IEnumerable<Rental> Rentals {
             get; set;
         }
-
+        /// <summary>
+        /// Konstruktor.
+        /// </summary>
+        public Client() {
+            this.Rentals = new List<Rental>();
+        }
         /// <summary>
         /// Property.
         /// Zwraca datę urodzenia klienta bez czasu.
