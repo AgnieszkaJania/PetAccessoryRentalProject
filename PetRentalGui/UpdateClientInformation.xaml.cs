@@ -27,9 +27,11 @@ namespace PetRentalGui {
             int id;
             var value = ValueToChange.SelectedValue as ListBoxItem;
             string selectedValue = value.Content as string;
+
             if (int.TryParse(inputClientId, out id)) {
 
                 using(var ctx = new PetRentalContext()) {
+
                     var client = ctx.Clients
                        .Where(a => a.Id == id)
                        .ToList();
@@ -40,14 +42,18 @@ namespace PetRentalGui {
                         string inputData = InputNewClientValue.Text.Trim();
                         if (selectedValue == "Name") {
                             client[0].Name = inputData;
-                            ctx.SaveChanges();
-                            MessageBox.Show("Data changed !");
+                            int result = ctx.SaveChanges();
+                            if (result == 1) {
+                                MessageBox.Show("Data changed !");
+                            }
                             
                         }
                         if (selectedValue == "Surname") {
                             client[0].Surname = inputData;
-                            ctx.SaveChanges();
-                            MessageBox.Show("Data changed !");
+                            int result = ctx.SaveChanges();
+                            if (result == 1) {
+                                MessageBox.Show("Data changed !");
+                            }
                         }
                     }
                 }

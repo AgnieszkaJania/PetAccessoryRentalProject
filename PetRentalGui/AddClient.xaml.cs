@@ -21,20 +21,29 @@ namespace PetRentalGui {
 
         private void AddNewClient(object sender, EventArgs e)
         {
-            // dodawanie / C
             
-            using var ctx = new PetRentalContext();
+            using (var ctx = new PetRentalContext()) {
 
-            if (ClientName.Text.Length > 15 || ClientSurname.Text.Length > 20) {
-                MessageBox.Show( "Name or Surname is too long !");
-            } else {
-                var date = ClientDateOfBirth.SelectedDate;
-                ctx.Clients.Add(new Client() { Name = ClientName.Text.Trim(), Surname = ClientSurname.Text.Trim(), DateOfBirth = DateTime.Parse(date.Value.ToString()), RegistrationDate = DateTime.Now });
-                ctx.SaveChanges();
-                MessageBox.Show("Client added !");
+
+                if (ClientName.Text.Length > 15 || ClientSurname.Text.Length > 20) {
+                    MessageBox.Show("Name or Surname is too long !");
+                } else {
+                    var date = ClientDateOfBirth.SelectedDate;
+                    var newClient = new Client() {
+                        Name = ClientName.Text.Trim(),
+                        Surname = ClientSurname.Text.Trim(),
+                        DateOfBirth = DateTime.Parse(date.Value.ToString()),
+                        RegistrationDate = DateTime.Now
+                    };
+                    ctx.Clients.Add(newClient);
+                    int result = ctx.SaveChanges();
+                    if (result == 1) {
+                        MessageBox.Show("Client added !");
+                    }
+                }
+
             }
-           
-            
+
 
             // read
 

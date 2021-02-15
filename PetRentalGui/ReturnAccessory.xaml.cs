@@ -43,8 +43,10 @@ namespace PetRentalGui {
                 } else {
 
                     rentals[0].ReturnDate = DateTime.Now;
-                    ctx.SaveChanges();
-                    MessageBox.Show("Item returned !");
+                    int result = ctx.SaveChanges();
+                    if (result == 1) {
+                        MessageBox.Show("Item returned !");
+                    }
                     
                     var returnedRental = ctx.Rentals
                         .Where(o => o.Id == x)
@@ -58,7 +60,7 @@ namespace PetRentalGui {
 
 
             } else {
-                MessageBox.Show("Wrong id");
+                MessageBox.Show("Incorrect id");
             }
 
 

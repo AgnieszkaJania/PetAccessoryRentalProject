@@ -63,11 +63,14 @@ namespace PetRentalGui {
                             //Client client = clients[0];
 
                             //Accessory accessory = acc[0];
-                            var tmp = new Rental() { ClientId = y, AccessoryId = x, RentalDate = DateTime.Now };
+                            var newRental = new Rental() { ClientId = y, AccessoryId = x, RentalDate = DateTime.Now };
                             //var tmp = new Rental() { Client = client, Accessory = accessory, RentalDate = DateTime.Now };
-                            ctx.Rentals.Add(tmp);
-                            ctx.SaveChanges();
-                            MessageBox.Show("Rental added !");
+                            ctx.Rentals.Add(newRental);
+                            int result = ctx.SaveChanges();
+                            if (result == 1) {
+                                MessageBox.Show("Rental added !");
+                            }
+                           
                         }
                         
                     } else {

@@ -17,7 +17,6 @@ namespace PetRentalGui {
 
         }
 
-
         private void SearchAccessory(object sender, EventArgs e) {
 
             var value = SearchCategory.SelectedValue as ListBoxItem;
@@ -25,7 +24,7 @@ namespace PetRentalGui {
 
 
             //throw new Exception();
-            string input = Value.Text.Trim();
+            string input = Value.Text.Trim().ToLower();
             
             using (var ctx = new PetRentalContext()) {
 
@@ -40,12 +39,12 @@ namespace PetRentalGui {
                 switch (valueSearchCategory) {
                     case "Pet Type":
                     accessories = accessories
-                        .Where(a => a.PetType.PetTypeName == input)
+                        .Where(a => a.PetType.PetTypeName.ToLower() == input)
                         .ToList();
                     break;
                     case "Name":
                     accessories = accessories
-                        .Where(a => a.AccessoryName.Contains(input))
+                        .Where(a => a.AccessoryName.ToLower().Contains(input))
                         .ToList();
                     break;
                     case "Rented accessories":
@@ -55,7 +54,7 @@ namespace PetRentalGui {
                     break;
                     case "Size":
                     accessories = accessories
-                        .Where(a => a.Size.SizeName.ToString() == input)
+                        .Where(a => a.Size.SizeName.ToString().ToLower() == input)
                         .ToList();
                     break;
                     case "All":
@@ -104,5 +103,8 @@ namespace PetRentalGui {
 
             return cell;
         }
+
+        
+
     }
 }
