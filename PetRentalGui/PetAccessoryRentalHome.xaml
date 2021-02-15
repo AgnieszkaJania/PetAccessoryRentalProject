@@ -60,6 +60,10 @@
         <Button Grid.Column="2" Grid.Row="3" Margin="0,10,0,0" Width="125" Height="25" 
                 HorizontalAlignment="Left"  VerticalAlignment="Top" Click="ReturnRentedAccessory" >Return accessory
         </Button>
+        <Button Grid.Column="2" Grid.Row="4" Margin="0,10,0,0" Width="125" Height="25" 
+                HorizontalAlignment="Left"  VerticalAlignment="Top" Click="UpdateClientData" >Update client data
+        </Button>
+        
 
     </Grid>
 </Page>

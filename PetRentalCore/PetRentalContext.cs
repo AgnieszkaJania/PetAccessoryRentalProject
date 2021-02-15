@@ -6,7 +6,12 @@ using System.IO;
 using System.Text;
 
 namespace PetRentalCore
-{
+{   
+    /// <summary>
+    /// Klasa tworząca bazę danych.
+    /// Klasa tworzy tabele, relace między nimi (klucze główne i obce).
+    /// Klasa wypełnia bazę początkowym zestawem danych.
+    /// </summary>
     public class PetRentalContext : DbContext {
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
@@ -15,29 +20,94 @@ namespace PetRentalCore
             
             optionsBuilder.UseSqlServer($@"Server=(LocalDB)\MSSQLLocalDB;Integrated Security=true;AttachDbFileName={path}");
         }
+        /// <summary>
+        /// Klasa odpowiedzialna za tabelę Rentals w bazie danych.
+        /// </summary>
         public DbSet<Rental> Rentals {
             get; private set;
         }
+        /// <summary>
+        ///  Klasa odpowiedzialna za tabelę Accessories w bazie danych.
+        ///  Tabela przechowuje informacje o akcesoriach dla zwierząt.
+        /// </summary>
         public DbSet<Accessory> Accessories {
             get; private set;
         }
+        /// <summary>
+        ///  Klasa odpowiedzialna za tabelę Clients w bazie danych.
+        ///  Tabela przechowuje informacje o klientach wypożyczalni.
+        /// </summary>
         public DbSet<Client> Clients {
             get; private set;
         }
+        /// <summary>
+        ///  Klasa odpowiedzialna za tabelę PetTypes w bazie danych.
+        ///  Tabela przechowuje informacje o rodzajach zwierząt dla których wypożyczalnia oferuje akcesoria.
+        /// </summary>
         public DbSet<PetType> PetTypes {
             get; private set;
         }
+        /// <summary>
+        ///  Klasa odpowiedzialna za tabelę Sizes w bazie danych.
+        ///  Tabela przechowuje informacje o rozmiarach akcesoriów dla zwierząt.
+        /// </summary>
 
         public DbSet<Size> Sizes {
             get; private set;
         }
+        /// <summary>
+        /// Funkcja main.
+        /// </summary>
         public static void Main() {
 
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-           
+
+            modelBuilder.Entity<Rental>(a => {
+                a.HasKey(b => b.Id);
+                a.Property(b => b.Id).ValueGeneratedOnAdd();
+            });
+
+            modelBuilder.Entity<Accessory>(a => {
+                a.HasKey(b => b.Id);
+                a.Property(b => b.Id).ValueGeneratedOnAdd();
+            });
+
+            modelBuilder.Entity<Client>(a => {
+                a.HasKey(b => b.Id);
+                a.Property(b => b.Id).ValueGeneratedOnAdd();
+            });
+
+            modelBuilder.Entity<PetType>(a => {
+                a.HasKey(b => b.Id);
+                a.Property(b => b.Id).ValueGeneratedOnAdd();
+            });
+
+            modelBuilder.Entity<Size>(a => {
+                a.HasKey(b => b.Id);
+                a.Property(b => b.Id).ValueGeneratedOnAdd();
+            });
+
+
+            modelBuilder.Entity<Size>()
+                .HasMany(a => a.Accessories)
+                .WithOne(b => b.Size)
+                .HasForeignKey(c => c.SizeId);
+            modelBuilder.Entity<PetType>()
+               .HasMany(a => a.Accessories)
+               .WithOne(b => b.PetType)
+               .HasForeignKey(c => c.PetTypeId);
+            modelBuilder.Entity<Accessory>()
+               .HasMany(a => a.Rentals)
+               .WithOne(b => b.Accessory)
+               .HasForeignKey(c => c.AccessoryId);
+            modelBuilder.Entity<Client>()
+               .HasMany(a => a.Rentals)
+               .WithOne(b => b.Client)
+               .HasForeignKey(c => c.ClientId);
+
             modelBuilder.Entity<Size>().HasData(new Size() {Id = 1, SizeName = Size.SizeType.XS});
             modelBuilder.Entity<Size>().HasData(new Size() {Id = 2, SizeName = Size.SizeType.S});
             modelBuilder.Entity<Size>().HasData(new Size() {Id = 3, SizeName = Size.SizeType.M});
@@ -59,28 +129,6 @@ namespace PetRentalCore
             modelBuilder.Entity<Client>().HasData(new Client() { Id = 4, Name = "Mateusz", Surname = "Dadacki", DateOfBirth = new DateTime(1986, 12, 31), RegistrationDate = DateTime.Now });
             modelBuilder.Entity<Client>().HasData(new Client() { Id = 5, Name = "Marcin", Surname = "Abacki", DateOfBirth = new DateTime(1999, 11, 01), RegistrationDate = DateTime.Now });
             modelBuilder.Entity<Client>().HasData(new Client() { Id = 6, Name = "Ewa", Surname = "Jakas", DateOfBirth = new DateTime(1978, 02, 15), RegistrationDate = DateTime.Now });
-
-            //modelBuilder.Entity<Rental>(a=> {
-            //    a.HasKey(b => b.Id);
-            //    a.Property(b => b.Id).ValueGeneratedOnAdd();
-            //});
-
-            modelBuilder.Entity<Size>()
-                .HasMany(a => a.Accessories)
-                .WithOne(b => b.Size)
-                .HasForeignKey(c => c.SizeId);
-            modelBuilder.Entity<PetType>()
-               .HasMany(a => a.Accessories)
-               .WithOne(b => b.PetType)
-               .HasForeignKey(c => c.PetTypeId);
-            modelBuilder.Entity<Accessory>()
-               .HasMany(a => a.Rentals)
-               .WithOne(b => b.Accessory)
-               .HasForeignKey(c => c.AccessoryId);
-            modelBuilder.Entity<Client>()
-               .HasMany(a => a.Rentals)
-               .WithOne(b => b.Client)
-               .HasForeignKey(c => c.ClientId);
 
             modelBuilder.Entity<Accessory>().HasData(new Accessory() { Id = 1, AccessoryName = "Kurtka Randig", OneDayRentalPrice = 10.00m, PetTypeId = 1, SizeId = 1 });
             modelBuilder.Entity<Accessory>().HasData(new Accessory() { Id = 2, AccessoryName = "Kurtka Randig", OneDayRentalPrice = 10.00m, PetTypeId = 1, SizeId = 2 });

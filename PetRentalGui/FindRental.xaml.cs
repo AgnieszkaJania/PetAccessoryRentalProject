@@ -19,11 +19,16 @@ namespace PetRentalGui {
     /// Logika interakcji dla klasy FindRental.xaml
     /// </summary>
     public partial class FindRental : Page {
-
+        /// <summary>
+        /// Konstruktor klasy FindRental
+        /// </summary>
         public FindRental() {
             InitializeComponent();
             (Application.Current.MainWindow as Window)
                 .Width = 1300;
+                
+                
+                
         }
 
         private void SearchRental(object sender, EventArgs e) {
@@ -46,8 +51,13 @@ namespace PetRentalGui {
                         rentals = rentals
                             .Where(c => c.ReturnDate == null)
                             .ToList();
-                    } 
-                    
+                        
+                    }
+
+                    if (rentals.Count == 0) {
+                        MessageBox.Show("Rental not found !");
+                    }
+
                     foreach (var x in rentals) {
                         var row = new TableRow();
                         var c1 = TableCel(x.Id.ToString());
@@ -84,16 +94,30 @@ namespace PetRentalGui {
                         .Include(b => b.Accessory)
                         .ToList();
 
+                    var notReturned = OnlyNotReturned.IsChecked;
+                    if (notReturned == true) {
+                        rentals = rentals
+                            .Where(c => c.ReturnDate == null)
+                            .ToList();
+                    }
+
                     int z;
                     DateTime y;
                     if (int.TryParse(input, out z)) {
                         rentals = rentals
                             .Where(a => a.ClientId == z).ToList();
-                    } else if(DateTime.TryParse(input, out y)){
+                    } else if (DateTime.TryParse(input, out y)) {
 
                         rentals = rentals
                             .Where(a => a.RentalDate.Date == y)
                             .ToList();
+                    } else {
+                        rentals.Clear();
+                        
+                    }
+                    if (rentals.Count == 0) {
+
+                        MessageBox.Show("Rental not found !");
                     }
 
                     foreach (var x in rentals) {

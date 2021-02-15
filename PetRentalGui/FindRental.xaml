@@ -14,7 +14,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="35"/>
             <RowDefinition Height="35"/>
-            <RowDefinition Height="35"/>
+            <RowDefinition Height="100" />
             <RowDefinition  />
             
 
@@ -30,7 +30,7 @@
         </Button>
 
         <RadioButton Grid.Row="1" VerticalAlignment="Bottom" Name="OnlyNotReturned">Only not returned accessories for a client</RadioButton>
-        
+        <Label Foreground="black" Grid.Row="2" Height="25" VerticalAlignment="Top" >To search all rentals, just click search</Label>
         
         <FlowDocumentScrollViewer Name="SearchCategoryRental" Grid.ColumnSpan="2" Margin="0,57,0,-8" Grid.Row="4" Grid.RowSpan="2">
             <FlowDocument>

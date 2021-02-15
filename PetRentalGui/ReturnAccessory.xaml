@@ -12,7 +12,7 @@
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
-            <RowDefinition/>
+           
 
         </Grid.RowDefinitions>
         <Label Grid.Column="0" Grid.Row="0" Height="35" Width="310" Padding="5" Background="#4E87D4"
@@ -20,6 +20,8 @@
         </Label>
         <TextBox Grid.Row="1" Width="100" Height="20" Name="ReturnInput" ></TextBox>
         <Button Grid.Row="2" Width="110" Height="20" Click="ReturnRentedAccessory"> Return accessory</Button>
-        <TextBox Grid.Row="4" Width="120" Height="20" Name="Output" ></TextBox>
+        
+        <TextBox Grid.Row="3" Width="100" Height="30" Name="AmountToPay" ></TextBox>
+        <Label Grid.Row="3" Width="150" Height="40" HorizontalAlignment="Left" FontSize="18" Foreground="red"> Amount to pay:</Label>
     </Grid>
 </Window>

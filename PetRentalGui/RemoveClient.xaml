@@ -12,15 +12,15 @@
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
-            <RowDefinition/>
+            
 
         </Grid.RowDefinitions>
         <Label Grid.Column="0" Grid.Row="0" Height="35" Width="310" Padding="5" Background="#4E87D4"
            VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White">Enter client id to remove:
         </Label>
-        <Label Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Width="310" Background="red" Foreground="Black"> You can only remove clients that did not rented anything !</Label>
+        <Label Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Width="410" Background="red" Foreground="Black"> Due to tax issues you can only remove clients that did not rented anything !</Label>
         <TextBox Grid.Row="2" Width="200" Height="20" HorizontalAlignment="Center" VerticalAlignment="Center" Name="ClientToRemId"></TextBox>
-        <TextBox Grid.Row="4" Width="200" Height="20" HorizontalAlignment="Center" VerticalAlignment="Center" Name="Response"></TextBox>
+        
         <Button Grid.Row="3" Height="20" Width="100" VerticalAlignment="Center" Click="RemoveSelClient"> Remove client</Button>
     </Grid>
 </Window>

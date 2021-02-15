@@ -29,6 +29,10 @@ namespace PetRentalGui {
 
                 using (var ctx = new PetRentalContext()) {
                     var res = ctx.Clients.ToList();
+                    if (res.Count == 0) {
+                        MessageBox.Show("There is no clients !");
+                    }
+
                     foreach (var x in res) {
                         var row = new TableRow();
                         var c1 = TableCel(x.Id.ToString());
@@ -50,10 +54,14 @@ namespace PetRentalGui {
             } else {
                 string input = ClientIdOrName.Text;
                 int a;
+
                 if (int.TryParse(input, out a)) {
 
                     using (var ctx = new PetRentalContext()) {
                         var res = ctx.Clients.Where(x => x.Id == a).ToList();
+                        if (res.Count == 0) {
+                            MessageBox.Show("Client not found !");
+                        }
                         foreach (var x in res) {
                             var row = new TableRow();
                             var c1 = TableCel(x.Id.ToString());
@@ -75,7 +83,11 @@ namespace PetRentalGui {
                 } else {
                     using (var ctx = new PetRentalContext()) {
                         var res = ctx.Clients.Where(x => x.Surname == input).ToList();
+                        if (res.Count == 0) {
+                            MessageBox.Show("Client not found !");
+                        }
                         foreach (var x in res) {
+                            
                             var row = new TableRow();
                             var c1 = TableCel(x.Id.ToString());
                             var c2 = TableCel(x.Name);
@@ -105,5 +117,6 @@ namespace PetRentalGui {
 
             return cell;
         }
+        
     }
 }

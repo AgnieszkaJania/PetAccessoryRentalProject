@@ -30,27 +30,28 @@ namespace PetRentalGui {
             if (int.TryParse(clientId, out a)) {
 
                 using var ctx = new PetRentalContext();
-                var clientToRemove = ctx.Clients.Where(x => x.Id == a).Single();
-                if (clientToRemove != null ) {
+                var clientToRemove = ctx.Clients.Where(x => x.Id == a).ToList();
+                if (clientToRemove.Count == 1 ) {
                     var clientRentals = ctx.Rentals.Where(x => x.ClientId == a).ToList();
                     if (clientRentals.Count == 0) {
-                        ctx.Clients.Remove(clientToRemove);
+
+                        ctx.Clients.Remove(clientToRemove[0]);
                         ctx.SaveChanges();
-                        Response.Text = "Deleted !";
+                        MessageBox.Show("Deleted !");
 
                     } else {
-                        Response.Text = "This client has already rented something !";
+                        MessageBox.Show("This client has already rented something !");
                     }
                     
                 } else {
                     
-                    Response.Text = "Client not found !";
+                    MessageBox.Show("Client not found !");
                 }
                
 
             } else {
 
-                Response.Text = "Incorrect client Id";
+                MessageBox.Show("Incorrect client Id");
             }
             
         }

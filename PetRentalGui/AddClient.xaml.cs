@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Windows;
 using System.Windows.Controls;
 using PetRentalCore;
 using PetRentalCore.Model;
@@ -7,8 +8,13 @@ using PetRentalCore.Model;
 namespace PetRentalGui {
     /// <summary>
     /// Logika interakcji dla klasy AddClient.xaml
+    /// Klasa tworzy nową stronę.
+    /// Strona umożliwia dodanie nowego klienta do bazy.
     /// </summary>
     public partial class AddClient : Page {
+        /// <summary>
+        /// Konstruktor klasy AddClient.
+        /// </summary>
         public AddClient() {
             InitializeComponent();
         }
@@ -16,11 +22,18 @@ namespace PetRentalGui {
         private void AddNewClient(object sender, EventArgs e)
         {
             // dodawanie / C
-            using var ctx = new PetRentalContext();
             
-            var date = ClientDateOfBirth.SelectedDate;
-            ctx.Clients.Add(new Client() {Name = ClientName.Text, Surname = ClientSurname.Text, DateOfBirth = DateTime.Parse(date.Value.ToString()), RegistrationDate = DateTime.Now });
-            ctx.SaveChanges();
+            using var ctx = new PetRentalContext();
+
+            if (ClientName.Text.Length > 15 || ClientSurname.Text.Length > 20) {
+                MessageBox.Show( "Name or Surname is too long !");
+            } else {
+                var date = ClientDateOfBirth.SelectedDate;
+                ctx.Clients.Add(new Client() { Name = ClientName.Text.Trim(), Surname = ClientSurname.Text.Trim(), DateOfBirth = DateTime.Parse(date.Value.ToString()), RegistrationDate = DateTime.Now });
+                ctx.SaveChanges();
+                MessageBox.Show("Client added !");
+            }
+           
             
 
             // read

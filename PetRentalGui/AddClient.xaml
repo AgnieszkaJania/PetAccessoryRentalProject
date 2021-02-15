@@ -18,6 +18,7 @@
             <RowDefinition Height="50"/>
             <RowDefinition Height="50"/>
             <RowDefinition Height="50"/>
+           
             
         </Grid.RowDefinitions>
         <Label Grid.Column="0" Grid.Row="0" VerticalAlignment="Center" FontFamily="Trebuchet MS" 
@@ -39,6 +40,7 @@
         <Button Grid.Row="3" Width="125" 
                 HorizontalAlignment="Left" Click="AddNewClient" Grid.ColumnSpan="2" Margin="162,0,0,24.6">Add client
         </Button>
+        
 
     </Grid>
 </Page>

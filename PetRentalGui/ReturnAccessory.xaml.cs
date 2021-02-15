@@ -31,18 +31,34 @@ namespace PetRentalGui {
                 var rentals = ctx.Rentals
                     .Where(b => b.ReturnDate == null)
                     .Where(c => c.AccessoryId == x).ToArray();
-                if (rentals.Length ==0) {
-                    Output.Text = "Podana rzecz nie jest wypożyczona !";
+
+                var accessories = ctx.Accessories
+                    .Where(d => d.Id == x)
+                    .ToList();
+                if (accessories.Count == 0) {
+                    MessageBox.Show("Item does not exist in the database!");
+                }
+                else if (rentals.Length == 0) {
+                    MessageBox.Show("Selected item is not rented !");
                 } else {
 
                     rentals[0].ReturnDate = DateTime.Now;
                     ctx.SaveChanges();
+                    MessageBox.Show("Item returned !");
+                    
+                    var returnedRental = ctx.Rentals
+                        .Where(o => o.Id == x)
+                        .ToList();
+
+                    //decimal amountToPay = accessories[0].OneDayRentalPrice;
+                    //??????????????????????????????????????????????????
+                    //TimeSpan timeSpan =((DateTime)rentals[0].ReturnDate.Value).Subtract(rentals[0].RentalDate);
                 }
                 
 
 
             } else {
-                Output.Text = "Niepoprawne id";
+                MessageBox.Show("Wrong id");
             }
 
 

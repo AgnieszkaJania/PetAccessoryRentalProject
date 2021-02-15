@@ -21,6 +21,7 @@ namespace PetRentalGui {
     public partial class PetAccessoryRentalHome : Page {
         public PetAccessoryRentalHome() {
             InitializeComponent();
+            
         }
 
         private void SearchClient(object o, RoutedEventArgs e) {
@@ -53,6 +54,10 @@ namespace PetRentalGui {
         private void ReturnRentedAccessory(object o, RoutedEventArgs e) {
             ReturnAccessory returnAccessory = new ReturnAccessory();
             returnAccessory.Show();
+        }
+        private void UpdateClientData(object o, RoutedEventArgs e) {
+            UpdateClientInformation uptadeClientInformation = new UpdateClientInformation();
+            this.NavigationService.Navigate(uptadeClientInformation);
         }
         private void ExitApp(object o, RoutedEventArgs e) {
             Environment.Exit(0);

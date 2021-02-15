@@ -21,6 +21,9 @@ namespace PetRentalGui {
     /// Logika interakcji dla klasy AddRental.xaml
     /// </summary>
     public partial class AddRental : Page {
+        /// <summary>
+        /// 
+        /// </summary>
         public AddRental() {
             InitializeComponent();
         }
@@ -37,6 +40,9 @@ namespace PetRentalGui {
                  var rentals = ctx.Rentals
                     .Include(a => a.Accessory)
                     .ToList();
+                var acc = ctx.Accessories
+                    .Where(p => p.Id == x)
+                    .ToList();
                 var NotReturnedRentals = rentals
                     .Where(b => b.ReturnDate is null)
                     .Where(c => c.AccessoryId == x)
@@ -44,19 +50,37 @@ namespace PetRentalGui {
                 var clients = ctx.Clients
                     .Where(z => z.Id == y)
                     .ToList();
+               
 
-                if (NotReturnedRentals.Count == 0 && clients.Count != 0) {
-                    var tmp = new Rental() { ClientId = y, AccessoryId = x, RentalDate = DateTime.Now };
-                    ctx.Rentals.Add(tmp);
-                    ctx.SaveChanges();
-                    Output.Text = "Rental added";
+                if (NotReturnedRentals.Count == 0) {
+
+                    if (clients.Count == 1) {
+
+                        if (acc.Count == 0) {
+                            MessageBox.Show("This item does not exist in the database !");
+                        } else {
+
+                            //Client client = clients[0];
+
+                            //Accessory accessory = acc[0];
+                            var tmp = new Rental() { ClientId = y, AccessoryId = x, RentalDate = DateTime.Now };
+                            //var tmp = new Rental() { Client = client, Accessory = accessory, RentalDate = DateTime.Now };
+                            ctx.Rentals.Add(tmp);
+                            ctx.SaveChanges();
+                            MessageBox.Show("Rental added !");
+                        }
+                        
+                    } else {
+                        MessageBox.Show("Client not found !");
+                    }
+                    
                 } else {
-                    Output.Text = "This accessory or client is unavailable !";
+                    MessageBox.Show("This accessory is rented now !");
                 }
 
                
             } else {
-                Output.Text = "Incorrect id !";
+                MessageBox.Show("Incorrect id !");
             }
            
         }

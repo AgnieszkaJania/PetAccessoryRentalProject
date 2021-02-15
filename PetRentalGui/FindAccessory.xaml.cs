@@ -2,6 +2,7 @@
 using PetRentalCore;
 using System;
 using System.Linq;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
 
@@ -20,11 +21,12 @@ namespace PetRentalGui {
         private void SearchAccessory(object sender, EventArgs e) {
 
             var value = SearchCategory.SelectedValue as ListBoxItem;
-            string tmp = value.Content as string;
+            string valueSearchCategory = value.Content as string;
 
 
             //throw new Exception();
-            string input = Value.Text;
+            string input = Value.Text.Trim();
+            
             using (var ctx = new PetRentalContext()) {
 
 
@@ -35,7 +37,7 @@ namespace PetRentalGui {
                     .Include(a=>a.Rentals)
                     .ToList();
 
-                switch (tmp) {
+                switch (valueSearchCategory) {
                     case "Pet Type":
                     accessories = accessories
                         .Where(a => a.PetType.PetTypeName == input)
@@ -61,9 +63,11 @@ namespace PetRentalGui {
                 }
 
                 //var selectedAcc = accessories.Where(x => x.PetType.ToString() == input);
+                if (accessories.Count == 0) {
+                    MessageBox.Show("Accessory not found !");
+                }
                 foreach (var x in accessories) {
                     var row = new TableRow();
-                    //bool isRented = x
                     var c1 = TableCel(x.Id.ToString());
                     var c2 = TableCel(x.AccessoryName);
                     var c3 = TableCel(x.OneDayRentalPrice.ToString());

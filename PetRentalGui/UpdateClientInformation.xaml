@@ -1,0 +1,35 @@
+﻿<Page x:Class="PetRentalGui.UpdateClientInformation"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PetRentalGui"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="UpdateClientInformation">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" Background="CadetBlue" Width="400" Height="40" FontSize="15">Mark value, you want to change and enter new value.</Label>
+        <TextBox Grid.Row="2" Width="100" Height="25" Name="ClientIdInput"></TextBox>
+        <Label Grid.Row="2" Width="200" FontSize="18" Height="30" HorizontalAlignment="Left" Foreground="red">Enter client id:</Label>
+        <ListBox Name="ValueToChange" Grid.Row="1" Width="200" HorizontalAlignment="Left">
+
+            <ListBoxItem IsSelected="True">Name</ListBoxItem>
+            <ListBoxItem >Surname</ListBoxItem>
+            
+        </ListBox>
+        <TextBox Grid.Row="3" Width="150" Height="25" Name="InputNewClientValue"></TextBox>
+        <Button Grid.Row="4" Width="150" Height="25" Click="ChangeValue">Change value</Button>
+        
+        
+        
+    </Grid>
+</Page>
