@@ -6,49 +6,50 @@ using System.IO;
 using System.Text;
 
 namespace PetRentalCore
-{   
+{
     /// <summary>
-    /// Klasa tworząca bazę danych.
-    /// Klasa tworzy tabele, relace między nimi (klucze główne i obce).
-    /// Klasa wypełnia bazę początkowym zestawem danych.
+    /// Klasa odpowiedzialna za zarządzanie połączeniem z bazą danych.
     /// </summary>
     public class PetRentalContext : DbContext {
 
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
             //optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=PetRental");
+
             string path = Path.Combine(Environment.CurrentDirectory, "PetRental.mdf");
             
             optionsBuilder.UseSqlServer($@"Server=(LocalDB)\MSSQLLocalDB;Integrated Security=true;AttachDbFileName={path}");
         }
         /// <summary>
-        /// Klasa odpowiedzialna za tabelę Rentals w bazie danych.
+        /// Property mapujące na tabelę Rentals w bazie danych.
+        /// Tabela przechowuje informacje o wypożyczeniach akcesoriów dla zwierząt.
         /// </summary>
         public DbSet<Rental> Rentals {
             get; private set;
         }
         /// <summary>
-        ///  Klasa odpowiedzialna za tabelę Accessories w bazie danych.
+        ///  Property mapujące na tabelę Accessories w bazie danych.
         ///  Tabela przechowuje informacje o akcesoriach dla zwierząt.
         /// </summary>
         public DbSet<Accessory> Accessories {
             get; private set;
         }
         /// <summary>
-        ///  Klasa odpowiedzialna za tabelę Clients w bazie danych.
+        ///  Property mapujące na tabelę Clients w bazie danych.
         ///  Tabela przechowuje informacje o klientach wypożyczalni.
         /// </summary>
         public DbSet<Client> Clients {
             get; private set;
         }
         /// <summary>
-        ///  Klasa odpowiedzialna za tabelę PetTypes w bazie danych.
+        ///  Property mapujące na tabelę PetTypes w bazie danych.
         ///  Tabela przechowuje informacje o rodzajach zwierząt dla których wypożyczalnia oferuje akcesoria.
         /// </summary>
         public DbSet<PetType> PetTypes {
             get; private set;
         }
         /// <summary>
-        ///  Klasa odpowiedzialna za tabelę Sizes w bazie danych.
+        ///  Property mapujące na tabelę Sizes w bazie danych.
         ///  Tabela przechowuje informacje o rozmiarach akcesoriów dla zwierząt.
         /// </summary>
 
