@@ -44,28 +44,6 @@ namespace PetRentalGui {
 
             }
 
-
-            // read
-
-//            using (var ctx = new PetRentalContext())
-//            {
-//                var res  = ctx.Clients.ToList();
-//                var client = ctx.Clients.Where(x => x.Id == 1).Single();
-
-//                client.Name = "dsds";
-//                ctx.SaveChanges();
-
-//                ctx.Clients.Remove(client);
-
-//               // ctx.Rentals.R
-//                ctx.SaveChanges();
-////
-//              //  var acc = ctx.Accessories.Where().Single();
-//             //   ctx.Rentals.Add(new Rental() {Accessory = acc ,Client = client ,})
-//                //client.Rentals.
-//            }
-
-
         }
     }
 }

@@ -73,15 +73,6 @@ namespace PetRentalCore.Model
         public DateTime? ReturnDate {
             get; set;
         }
-        /// <summary>
-        /// Property.
-        /// Data wypożyczenia akcesorium w formacie zawierającym tylko datę, bez czasu.
-        /// </summary>
-        public string DateRental => RentalDate.ToString("yyyy.MM.dd");
-        /// <summary>
-        /// Property.
-        /// Data zwrotu akcesorium w formacie zawierającym tylko datę, bez czasu.
-        /// </summary>
-        public string DateReturn => ReturnDate is null ? "Not returned" : ReturnDate?.ToString("yyyy.MM.dd");
+        
     }
 }

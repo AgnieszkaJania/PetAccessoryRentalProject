@@ -26,17 +26,13 @@ namespace PetRentalGui {
             InitializeComponent();
             (Application.Current.MainWindow as Window)
                 .Width = 1300;
-                
-                
-                
+                                   
         }
 
         private void SearchRental(object sender, EventArgs e) {
 
             string input = RentalValue.Text;
-            //var valueRental = SearchRentalCategory.SelectedValue as ListBoxItem;
-            //string tmp = valueRental.Content as string;
-
+            
             if (input == "") {
 
                 using (var ctx = new PetRentalContext()) {

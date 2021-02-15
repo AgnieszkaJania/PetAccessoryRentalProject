@@ -53,14 +53,10 @@ namespace PetRentalGui {
                             
                         }
 
-                        var returnedRental = ctx.Rentals
-                            .Where(o => o.Id == x)
-                            .ToList();
-
 
                         decimal amountToPay = accessories[0].OneDayRentalPrice;
 
-                        int rentalDays = ((DateTime)rentals[0].ReturnDate.Value).Subtract(rentals[0].RentalDate).Days - 1;
+                        int rentalDays = ((DateTime)rentals[0].ReturnDate.Value).Subtract(rentals[0].RentalDate).Days;
                         amountToPay += (accessories[0].OneDayRentalPrice * rentalDays);
                         AmountToPay.Text = amountToPay.ToString();
                     }

@@ -62,7 +62,7 @@ namespace PetRentalGui {
 
                                 Client client = clients[0];
                                 Accessory accessory = acc[0];
-                                //var newRental = new Rental() { ClientId = y, AccessoryId = x, RentalDate = DateTime.Now };
+                                
                                 var newRental = new Rental() { Client = client, Accessory = accessory, RentalDate = DateTime.Now };
                                 ctx.Rentals.Add(newRental);
                                 int result = ctx.SaveChanges();

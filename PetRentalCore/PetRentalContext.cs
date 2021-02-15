@@ -14,8 +14,7 @@ namespace PetRentalCore
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
-            //optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=PetRental");
-
+            
             string path = Path.Combine(Environment.CurrentDirectory, "PetRental.mdf");
             
             optionsBuilder.UseSqlServer($@"Server=(LocalDB)\MSSQLLocalDB;Integrated Security=true;AttachDbFileName={path}");

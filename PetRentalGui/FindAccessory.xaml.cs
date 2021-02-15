@@ -86,12 +86,7 @@ namespace PetRentalGui {
                     TabelkaAcc.Rows.Add(row);
 
                 }
-                //int id = 1;
-                //int
-                // Func<Accessory, bool> byName = accessory => accessory.Id == id;
-                // Func<Accessory, bool> bySize = accessory => accessory.Size == size;
-                // Func<Accessory, bool> byName = accessory => accessory.Id == id;
-                //ctx.Accessories.Where(byName)
+               
 
 
             }
