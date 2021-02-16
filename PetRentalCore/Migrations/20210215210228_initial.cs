@@ -110,12 +110,12 @@ namespace PetRentalCore.Migrations
                 columns: new[] { "Id", "DateOfBirth", "Name", "RegistrationDate", "Surname" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(1995, 3, 20, 0, 0, 0, 0, DateTimeKind.Unspecified), "Katarzyna", new DateTime(2021, 2, 15, 19, 15, 59, 257, DateTimeKind.Local).AddTicks(2066), "Jablonska" },
-                    { 2, new DateTime(1996, 5, 23, 0, 0, 0, 0, DateTimeKind.Unspecified), "Agnieszka", new DateTime(2021, 2, 15, 19, 15, 59, 260, DateTimeKind.Local).AddTicks(9679), "Nowak" },
-                    { 3, new DateTime(2000, 3, 11, 0, 0, 0, 0, DateTimeKind.Unspecified), "Agnieszka", new DateTime(2021, 2, 15, 19, 15, 59, 260, DateTimeKind.Local).AddTicks(9806), "Babacka" },
-                    { 4, new DateTime(1986, 12, 31, 0, 0, 0, 0, DateTimeKind.Unspecified), "Mateusz", new DateTime(2021, 2, 15, 19, 15, 59, 260, DateTimeKind.Local).AddTicks(9839), "Dadacki" },
-                    { 5, new DateTime(1999, 11, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Marcin", new DateTime(2021, 2, 15, 19, 15, 59, 260, DateTimeKind.Local).AddTicks(9867), "Abacki" },
-                    { 6, new DateTime(1978, 2, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), "Ewa", new DateTime(2021, 2, 15, 19, 15, 59, 260, DateTimeKind.Local).AddTicks(9915), "Jakas" }
+                    { 1, new DateTime(1995, 3, 20, 0, 0, 0, 0, DateTimeKind.Unspecified), "Katarzyna", new DateTime(2021, 2, 15, 22, 2, 27, 405, DateTimeKind.Local).AddTicks(8315), "Jablonska" },
+                    { 2, new DateTime(1996, 5, 23, 0, 0, 0, 0, DateTimeKind.Unspecified), "Agnieszka", new DateTime(2021, 2, 15, 22, 2, 27, 408, DateTimeKind.Local).AddTicks(5362), "Nowak" },
+                    { 3, new DateTime(2000, 3, 11, 0, 0, 0, 0, DateTimeKind.Unspecified), "Agnieszka", new DateTime(2021, 2, 15, 22, 2, 27, 408, DateTimeKind.Local).AddTicks(5491), "Babacka" },
+                    { 4, new DateTime(1986, 12, 31, 0, 0, 0, 0, DateTimeKind.Unspecified), "Mateusz", new DateTime(2021, 2, 15, 22, 2, 27, 408, DateTimeKind.Local).AddTicks(5518), "Dadacki" },
+                    { 5, new DateTime(1999, 11, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Marcin", new DateTime(2021, 2, 15, 22, 2, 27, 408, DateTimeKind.Local).AddTicks(5539), "Abacki" },
+                    { 6, new DateTime(1978, 2, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), "Ewa", new DateTime(2021, 2, 15, 22, 2, 27, 408, DateTimeKind.Local).AddTicks(5566), "Jakas" }
                 });
 
             migrationBuilder.InsertData(

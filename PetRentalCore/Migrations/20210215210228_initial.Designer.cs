@@ -10,7 +10,7 @@ using PetRentalCore;
 namespace PetRentalCore.Migrations
 {
     [DbContext(typeof(PetRentalContext))]
-    [Migration("20210215181559_initial")]
+    [Migration("20210215210228_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -374,7 +374,7 @@ namespace PetRentalCore.Migrations
                             Id = 1,
                             DateOfBirth = new DateTime(1995, 3, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Katarzyna",
-                            RegistrationDate = new DateTime(2021, 2, 15, 19, 15, 59, 257, DateTimeKind.Local).AddTicks(2066),
+                            RegistrationDate = new DateTime(2021, 2, 15, 22, 2, 27, 405, DateTimeKind.Local).AddTicks(8315),
                             Surname = "Jablonska"
                         },
                         new
@@ -382,7 +382,7 @@ namespace PetRentalCore.Migrations
                             Id = 2,
                             DateOfBirth = new DateTime(1996, 5, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Agnieszka",
-                            RegistrationDate = new DateTime(2021, 2, 15, 19, 15, 59, 260, DateTimeKind.Local).AddTicks(9679),
+                            RegistrationDate = new DateTime(2021, 2, 15, 22, 2, 27, 408, DateTimeKind.Local).AddTicks(5362),
                             Surname = "Nowak"
                         },
                         new
@@ -390,7 +390,7 @@ namespace PetRentalCore.Migrations
                             Id = 3,
                             DateOfBirth = new DateTime(2000, 3, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Agnieszka",
-                            RegistrationDate = new DateTime(2021, 2, 15, 19, 15, 59, 260, DateTimeKind.Local).AddTicks(9806),
+                            RegistrationDate = new DateTime(2021, 2, 15, 22, 2, 27, 408, DateTimeKind.Local).AddTicks(5491),
                             Surname = "Babacka"
                         },
                         new
@@ -398,7 +398,7 @@ namespace PetRentalCore.Migrations
                             Id = 4,
                             DateOfBirth = new DateTime(1986, 12, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Mateusz",
-                            RegistrationDate = new DateTime(2021, 2, 15, 19, 15, 59, 260, DateTimeKind.Local).AddTicks(9839),
+                            RegistrationDate = new DateTime(2021, 2, 15, 22, 2, 27, 408, DateTimeKind.Local).AddTicks(5518),
                             Surname = "Dadacki"
                         },
                         new
@@ -406,7 +406,7 @@ namespace PetRentalCore.Migrations
                             Id = 5,
                             DateOfBirth = new DateTime(1999, 11, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Marcin",
-                            RegistrationDate = new DateTime(2021, 2, 15, 19, 15, 59, 260, DateTimeKind.Local).AddTicks(9867),
+                            RegistrationDate = new DateTime(2021, 2, 15, 22, 2, 27, 408, DateTimeKind.Local).AddTicks(5539),
                             Surname = "Abacki"
                         },
                         new
@@ -414,7 +414,7 @@ namespace PetRentalCore.Migrations
                             Id = 6,
                             DateOfBirth = new DateTime(1978, 2, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Ewa",
-                            RegistrationDate = new DateTime(2021, 2, 15, 19, 15, 59, 260, DateTimeKind.Local).AddTicks(9915),
+                            RegistrationDate = new DateTime(2021, 2, 15, 22, 2, 27, 408, DateTimeKind.Local).AddTicks(5566),
                             Surname = "Jakas"
                         });
                 });
